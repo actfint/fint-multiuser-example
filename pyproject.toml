@@ -1,0 +1,35 @@
+[build-system]
+requires = ["hatchling", ]
+build-backend = "hatchling.build"
+
+[project]
+name = "fint_multiuser_example"
+description = "An FPS plugin for an unprotected API"
+keywords = ["fint", "server", "fastapi", "pluggy", "plugins"]
+dynamic = ["version"]
+requires-python = ">=3.7"
+dependencies = ['fint_rtc_server']
+
+
+[[project.authors]]
+name = "Wh1isper"
+email = "9573586@qq.com"
+
+[project.readme]
+file = "README.md"
+content-type = "text/markdown"
+
+[project.license]
+text = "BSD 3-Clause License"
+
+[tool.check-manifest]
+ignore = [".*", ]
+
+[project.entry-points.fint_multiuser]
+get_user_manager = "fint_multiuser_example.main:get_user_manager"
+
+[project.entry-points.fps_config]
+fint_multiuser_example = "fint_multiuser_example.config"
+
+[tool.hatch.version]
+path = "fint_multiuser_example/__init__.py"
